@@ -266,7 +266,7 @@ static void loadWidget(cJSON *root)
 	switch (w->type)
 	{
 		case WT_BUTTON:
-			STRNCPY(w->label, cJSON_GetObjectItem(root, "label")->valuestring, MAX_NAME_LENGTH);
+			STRNCPY(w->label, _(cJSON_GetObjectItem(root, "label")->valuestring), MAX_NAME_LENGTH);
 			break;
 			
 		case WT_IMAGE:
@@ -276,13 +276,13 @@ static void loadWidget(cJSON *root)
 			break;
 			
 		case WT_SLIDER:
-			STRNCPY(w->label, cJSON_GetObjectItem(root, "label")->valuestring, MAX_NAME_LENGTH);
+			STRNCPY(w->label, _(cJSON_GetObjectItem(root, "label")->valuestring), MAX_NAME_LENGTH);
 			w->maxValue = cJSON_GetObjectItem(root, "maxValue")->valueint;
 			createSliderControls(w);
 			break;
 			
 		case WT_SPINNER:
-			STRNCPY(w->label, cJSON_GetObjectItem(root, "label")->valuestring, MAX_NAME_LENGTH);
+			STRNCPY(w->label, _(cJSON_GetObjectItem(root, "label")->valuestring), MAX_NAME_LENGTH);
 			createOptions(w, cJSON_GetObjectItem(root, "options"));
 			createSpinnerControls(w);
 			break;
